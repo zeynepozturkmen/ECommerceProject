@@ -89,3 +89,67 @@ $("#addCampaignForm").submit(function (event) {
 
 
 });
+
+function deleteCampaign(Id) {
+    swal({
+        text: "Are you sure the campaign will be deleted?",
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Evet',
+        cancelButtonText: 'Hayır',
+        confirmButtonClass: 'btn btn-success',
+        cancelButtonClass: 'btn btn-danger',
+        buttonsStyling: true
+    }).then(function (willDelete) {
+        if (willDelete) {
+            $.ajax({
+                url: '/Campaign/DeleteCampaign?Id=' + Id,
+                type: 'POST',
+                success: function (d) {
+                    if (d.failed == false) {
+                        swal({
+                            title: "Success!",
+                            text: d.message,
+                            type: "success",
+                            showCancelButton: false,
+                            confirmButtonColor: '#5cb85c',
+                            confirmButtonText: 'Ok',
+                            cancelButtonText: "No, cancel it!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false,
+                            allowOutsideClick: false
+                        });
+
+
+                        setInterval(function () { window.location.reload() }, 2000);
+                    }
+                    else {
+                        swal({
+                            title: "Error!",
+                            text: d.message,
+                            type: "error",
+                            showCancelButton: false,
+                            confirmButtonColor: '#5cb85c',
+                            confirmButtonText: 'Ok',
+                            cancelButtonText: "No, cancel it!",
+                            closeOnConfirm: false,
+                            closeOnCancel: false,
+                            allowOutsideClick: false
+                        });
+                    }
+                },
+                error: function (xhr) {
+                    if (xhr.status == 403 || xhr.status == 401 || xhr.status == 404) {
+                        window.location.href = "/Account/AccessDenied";
+                    }
+                    else {
+                        toastr.error("Hata oluştu", "Hata");
+                    }
+
+                }
+            });
+        }
+
+    });
+}
+

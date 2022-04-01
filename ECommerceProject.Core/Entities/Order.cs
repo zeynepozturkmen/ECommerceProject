@@ -9,5 +9,6 @@ namespace ECommerceProject.Core.Entities
         public Guid ProductId { get; set; }
         public Product Product { get; set; }
         public double Quantity { get; set; }
+        public double TotalAmount { get; set; }
     }
 }

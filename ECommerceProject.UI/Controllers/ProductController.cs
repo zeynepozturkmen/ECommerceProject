@@ -1,4 +1,5 @@
 ﻿using ECommerceProject.Business.IService;
+using ECommerceProject.Contract.Common;
 using ECommerceProject.Contract.RequestModel;
 using ECommerceProject.Contract.RequestModel.Product;
 using Microsoft.AspNetCore.Mvc;
@@ -46,6 +47,27 @@ namespace ECommerceProject.UI.Controllers
             }
 
          
+        }
+
+        [HttpPost]
+        public async Task<JsonResult> DeleteProduct(ByIdRequestModel model)
+        {
+            if (model.Id == Guid.Empty)
+            {
+                return Json(new { failed = true, message = "Geçersiz id" });
+            }
+
+            var response = await _productService.DeleteProduct(model);
+
+            if (response.IsError)
+            {
+                //return error message
+                return Json(new { failed = true, message = response.Detail });
+            }
+            else
+            {
+                return Json(new { failed = false, message = response.Detail });
+            }
         }
     }
 }

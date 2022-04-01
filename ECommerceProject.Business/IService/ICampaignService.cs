@@ -13,5 +13,6 @@ namespace ECommerceProject.Business.IService
     {
         Task<List<CampaignResponseModel>> GetAllCampaign();
         Task<BaseResponseModel> CreateCampaign(CampaignRequestModel model);
+        Task<BaseResponseModel> DeleteCampaign(ByIdRequestModel model);
     }
 }

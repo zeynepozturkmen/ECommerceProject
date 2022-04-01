@@ -73,5 +73,33 @@ namespace ECommerceProject.Business.Service
 
             return result;
         }
+
+        public async Task<BaseResponseModel> DeleteCampaign(ByIdRequestModel model)
+        {
+            var result = new BaseResponseModel();
+
+            var findCampaign= await _dbContext.Campaign.Where(x => !x.IsDeleted && x.Id==model.Id).FirstOrDefaultAsync();
+            if (findCampaign == null)
+            {
+                result.IsError = true;
+                result.Detail = "No campaign found to be deleted";
+                return result;
+            }
+
+            findCampaign.IsDeleted = true;
+            var saveChanges = await _uow.CommitAsync();
+
+            if (saveChanges)
+            {
+                result.Detail = "Record successfully deleted";
+            }
+            else
+            {
+                result.IsError = true;
+                result.Detail = "An error occurred";
+            }
+
+            return result;
+        }
     }
 }

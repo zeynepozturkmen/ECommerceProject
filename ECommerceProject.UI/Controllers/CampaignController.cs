@@ -1,4 +1,5 @@
 ﻿using ECommerceProject.Business.IService;
+using ECommerceProject.Contract.Common;
 using ECommerceProject.Contract.RequestModel.Campaign;
 using ECommerceProject.Contract.ResponseModel.Campaign;
 using Microsoft.AspNetCore.Mvc;
@@ -40,8 +41,29 @@ namespace ECommerceProject.UI.Controllers
             {
                 return Json(new { failed = true, message =createCampaign.Detail });
             }
+        }
 
+        
 
+        [HttpPost]
+        public async Task<JsonResult> DeleteCampaign(ByIdRequestModel model)
+        {
+            if (model.Id == Guid.Empty)
+            {
+                return Json(new { failed = true, message = "Geçersiz id" });
+            }
+
+            var response = await _campaignService.DeleteCampaign(model);
+
+            if (response.IsError)
+            {
+                //return error message
+                return Json(new { failed = true, message = response.Detail });
+            }
+            else
+            {
+                return Json(new { failed = false, message = response.Detail });
+            }
         }
     }
 }

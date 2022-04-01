@@ -37,12 +37,12 @@
                                     <th>Product Code - Name</th>
                                     <th>Active/Pasif</th>
                                     <th>Created Date</th>
-                                    <th>Duration</th>
+                                    <th>Duration (Hour)</th>
                                     <th>Product Price</th>
                                     <th>Campaign Price</th>
                                     <th>Limit</th>
                                     <th>Target Sales Count</th>
-                                    <th class="notexport">İşlemler</th>
+                                    <th class="notexport">Transactions</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,11 +57,11 @@
                                             <td>@item.RecordDate</td>
                                             <td>@item.Duration</td>
                                             <td>@item.Product_Price</td>
-                                            <td>@item.CampaignPrice</td>
+                                            <td>@item.CampaignPrice.ToString("N2")</td>
                                             <td>@item.Limit</td>
                                             <td>@item.TargetSalesCount</td>
                                             <td>
-                                                <button type="button" class="btn btn-danger" onclick="deleteProduct('@item.Id')">Delete</button>
+                                                <button type="button" class="btn btn-danger" onclick="deleteCampaign('@item.Id')">Delete</button>
                                             </td>
                                         </tr>
 
@@ -121,7 +121,7 @@
 
                         <div class="col-xl-2 col-xs-12">
                             <div class="form-group">
-                                <label for="inputCity">Duration</label>
+                                <label for="inputCity">Duration (Hour)</label>
                                 <input class="form-control" type="number" required name="Duration" />
 
                             </div>

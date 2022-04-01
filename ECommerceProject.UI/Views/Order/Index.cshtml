@@ -142,14 +142,14 @@
 <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/plugins/forms/checkboxes-radios.css">
 <!-- END: Page CSS-->
 
-<div class="content-detached content-right">
+<div class="content-detached content-right mt-2">
     <div class="content-body">
         <div class="product-shop">
             <div class="card">
                 <div class="card-body">
-                    <span class="shop-title">Ürünler</span>
+                    <span class="shop-title">Products</span>
                     <span class="float-right">
-                        <span class="result-text mr-1"><a href="/OilProduct/TempBasket" class="btn btn-info" style="background-color:#4b96cd !important"><i class="fas fa-shopping-basket" style="font-size: 18px; "></i>   Sepetime Git</a></span>
+                        <span class="result-text mr-1"><a href="/Order/ShoppingList" class="btn btn-info" style="background-color:#4b96cd !important"><i class="fas fa-shopping-basket" style="font-size: 18px; "></i>  My Shopping List</a></span>
 
                     </span>
                 </div>
@@ -166,13 +166,13 @@
         </div>
     </div>
 </div>
-<div class="sidebar-detached sidebar-left">
+<div class="sidebar-detached sidebar-left mt-2">
     <div class="sidebar" @*style="position: fixed"*@>
         <div class="sidebar-content d-none d-lg-block sidebar-shop">
             <div class="card">
                 <div class="card-body">
                     <div class="search">
-                        <input id="basic-search" type="text" onkeyup="search_oil()" placeholder="Ara" name="search" class="basic-search">
+                        <input id="basic-search" type="text" onkeyup="search_oil()" placeholder="Search" name="search" class="basic-search">
                         <i class="ficon ft-search"></i>
                     </div>
                 </div>
@@ -181,7 +181,7 @@
                 <div class="card-body">
                     <div class="categories-list">
                         <div class="category-title pb-1">
-                            <h4 class="card-title mb-0"><b>Kategoriler</b></h4>
+                            <h4 class="card-title mb-0"><b>Categories</b></h4>
                             <hr>
                         </div>
                         <div class="product-cat" id="categories">
@@ -198,7 +198,7 @@
                 <div class="card-body">
                     <div class="categories-list">
                         <div class="category-title pb-1">
-                            <h4 class="card-title mb-0"><b>Sıralama</b></h4>
+                            <h4 class="card-title mb-0"><b>Sorting</b></h4>
                             <hr>
                         </div>
                         <div class="product-cat" id="sorting">
@@ -224,23 +224,23 @@
                 <div class="card-body">
                     <div class="categories-list">
                         <div class="category-title pb-1">
-                            <h4 class="card-title mb-0"><b>Filtreleme</b></h4>
+                            <h4 class="card-title mb-0"><b>Filtering</b></h4>
                             <hr>
                         </div>
                         <div class="product-cat" id="sorting">
                             <form id="getOilProductByUnitType">
 
                                 <div class="form-group col-12">
-                                    <label for="inputCity">Birim Listesi <span style="color:red">*</span></label>
+                                    <label for="inputCity">Unit Type <span style="color:red">*</span></label>
                                     <select class="form-control select2" name="UnitTypeName" id="UnitTypeId">
-                                        <option value="">Seçiniz</option>
+                                        <option value="">Choose</option>
 
 
                                     </select>
                                 </div>
 
                                 <div class="form-group" style="text-align:center">
-                                    <button class="btn btn-info" type="submit" style="background-color:#4b96cd !important"><i class="fas fa-search"></i> Sorgula</button>
+                                    <button class="btn btn-info" type="submit" style="background-color:#4b96cd !important"><i class="fas fa-search"></i> Search</button>
 
                                 </div>
                             </form>
@@ -254,24 +254,24 @@
                 <div class="card-body">
                     <div class="categories-list">
                         <div class="category-title pb-1">
-                            <h4 class="card-title mb-0"><b>Filtreleme</b></h4>
+                            <h4 class="card-title mb-0"><b>Filtering</b></h4>
                             <hr>
                         </div>
                         <div class="product-cat" id="sorting">
                             <form id="getOilProductByPrice">
                                 <div class="form-group row">
                                     <div class="form-group col-6">
-                                        <label for="inputCity">Min Fiyat <span style="color:red">*</span></label>
+                                        <label for="inputCity">Min Price <span style="color:red">*</span></label>
                                         <input type="number" class="form-control" name="MinPrice" id="MinPrice" value="" placeholder="0.00 ₺" />
                                     </div>
                                     <div class="form-group col-6">
-                                        <label for="inputCity">Max Fiyat <span style="color:red">*</span></label>
+                                        <label for="inputCity">Max Price <span style="color:red">*</span></label>
                                         <input type="number" class="form-control" name="MaxPrice" id="MaxPrice" value="" placeholder="0.00 ₺" />
                                     </div>
                                 </div>
 
                                 <div class="form-group" style="text-align:center">
-                                    <button class="btn btn-info" type="submit" style="background-color:#4b96cd !important"><i class="fas fa-search"></i> Sorgula</button>
+                                    <button class="btn btn-info" type="submit" style="background-color:#4b96cd !important"><i class="fas fa-search"></i> Search</button>
 
                                 </div>
                             </form>

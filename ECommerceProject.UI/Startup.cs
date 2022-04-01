@@ -46,6 +46,7 @@ namespace ECommerceProject.UI
             services.AddTransient<IUnitOfWork, UnitOfWork>();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICampaignService, CampaignService>();
+            services.AddTransient<IOrderService, OrderService>();
             #endregion
 
         }

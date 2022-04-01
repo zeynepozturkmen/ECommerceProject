@@ -1,0 +1,238 @@
+﻿
+@{
+    ViewData["Title"] = "Product Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model ECommerceProject.Contract.ResponseModel.Product.ProductResponseModel
+
+<div class="app-content content">
+
+    @*<div class="content-overlay"></div>*@
+    <div class="content-wrapper">
+        <div class="content-header row">
+            <div class="content-header-left col-md-6 col-12" style="padding:0 !important; padding-left:1% !important">
+                <h3 class="content-header-title" style="padding:0 !important">Product Details</h3><br />
+                <div class="row breadcrumbs-top">
+                    <div class="breadcrumb-wrapper col-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item">
+                                <a href="/OilProduct/GetOilProducts" style="color: #1e9ff2 !important">Product</a>
+                            </li>
+                            <li class="breadcrumb-item">
+                                Product Details
+                            </li>
+
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content-body">
+            @if (Model != null)
+            {
+
+                <div class="product-detail">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="card-content">
+                                <span class="float-right">
+                                    <span class="result-text mr-1"><a href="/Order/ShoppingList" class="btn btn-info" style="background-color:#4b96cd !important"><i class="fas fa-shopping-basket" style="font-size: 18px; "></i> Go to shopping list</a></span>
+
+                                </span>
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <div class="d-flex align-items-center">
+                                            <div class="col-md-12 col-sm-12 col-xl-12">
+                                                <div class="card">
+                                                    <div class="card-content">
+                                                        <div class="card-body">
+                                                            <div class="pl-1 pt-1 pr-1">
+                                                                @if (Model.IsActiveCampaign)
+                                                                {
+                                                                    <span class="badge badge-danger" style="font-size:16px; font-weight:600; background-color:#e10032">@Model.CampaignName?.ToUpper()</span>
+
+                                                                }
+                                                            </div>
+                                                            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                                                                <ol class="carousel-indicators">
+                                                                    <li data-target="#carousel-example-generic" data-slide-to="0" class=""></li>
+                                                                    <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+                                                                    <li data-target="#carousel-example-generic" data-slide-to="2" class="active"></li>
+                                                                </ol>
+                                                                <div class="carousel-inner" role="listbox">
+
+                                                                    <div class="carousel-item active">
+                                                                        <img src="~/images/Product-Portfolio-1.jpg" class="" width="100%" height="450" style="margin:auto" alt="">
+                                                                    </div>
+
+                                                                </div>
+                                                                <a class="carousel-control-prev" href="#carousel-example-generic" role="button" data-slide="prev">
+                                                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                                    <span class="sr-only">Previous</span>
+                                                                </a>
+                                                                <a class="carousel-control-next" href="#carousel-example-generic" role="button" data-slide="next">
+                                                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                                    <span class="sr-only">Next</span>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-12">
+                                        <div class="title-area clearfix">
+                                            <h5>Product Code: @Model.Code</h5>
+                                            <h2 class="product-title float-left" style="display:contents">
+                                                @Model.Name
+                                            </h2><br />
+                                          
+
+                                        </div>
+                                        <div class="price-reviews clearfix">
+
+
+
+                                            @if (!Model.IsActiveCampaign)
+                                            {
+                                                <h4>
+                                                </h4>
+                                                <span class="price-box">
+                                                    <span class="price h4" style="font-size:220%" id="priceSpan_@(Model.Id)">
+                                                        @string.Format("{0:N2}", Model.Price) ₺
+                                                    </span>
+                                                    <span class="old-price h4">
+
+                                                    </span>
+                                                </span>
+
+                                                <span id="countPrice_@(Model.Id)">
+
+
+                                                    <i style="color: indianred">   &nbsp; Unit price : @string.Format("{0:N2}", Model.Price) ₺</i>
+                                                </span>
+
+                                            }
+                                            else
+                                            {
+                                                <h4>
+                                                </h4>
+                                                <span class="price-box">
+                                                    <span class="price h4" style="font-size:200%" id="priceSpan_@(Model.CampaignId)">
+                                                        @string.Format("{0:N2}", Model.Price) ₺
+                                                    </span>
+                                                    <span class="old-price h4">
+
+                                                    </span>
+                                                </span>
+
+                                                <span id="countPrice_@(Model.Id)">
+
+
+                                                    <i style="color: indianred; font-size: 220%">   &nbsp; Promotional price: : @string.Format("{0:N2}", Model.CampaignPrice) ₺</i>
+                                                </span>
+
+                                            }
+
+
+                                        </div>
+                                        <!-- Product Information -->
+                                        <div class="product-info">
+                                        </div>
+                                        <div class="form-group row">
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-5 col-lg-7 col-md-6 mb-1">
+                                                <div class="">
+                                                    <div class="product-count pr-1">
+                                                        <div class="input-group bootstrap-touchspin">
+                                                            <span class="input-group-btn input-group-prepend bootstrap-touchspin-injected">
+
+                                                            </span>
+
+                                                            @if (Model.IsActiveCampaign)
+                                                            {
+                                                                <input class="text-center count touchspin form-control" id="Quantity_@(Model.CampaignId)" type="number" value="1"><span class="input-group-btn input-group-append bootstrap-touchspin-injected">
+
+                                                                </span>
+                                                            }
+                                                            else
+                                                            {
+                                                                <input class="text-center count touchspin form-control" id="Quantity_@(Model.Id)" type="number" value="1"><span class="input-group-btn input-group-append bootstrap-touchspin-injected">
+
+                                                                </span>
+                                                            }
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-xl-4 col-lg-4 col-md-6 mb-1">
+
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-xl-6 col-lg-6 col-md-12">
+                                                <div class="product-buttons">
+
+                                                    @if (Model.IsActiveCampaign)
+                                                    {
+                                                        <a class="btn btn-danger" style="background-color:#e10032 !important; width:77%" href="#" onclick="createOrder('@Model.CampaignId',true)">
+                                                            <i class="la la-shopping-cart">
+                                                            </i>
+                                                            Buy
+                                                        </a>
+                                                    }
+                                                    else
+                                                    {
+                                                        <a class="btn btn-danger" style="background-color:#e10032 !important; width:77%" href="#" onclick="createOrder('@Model.Id',false)">
+                                                            <i class="la la-shopping-cart">
+                                                            </i>
+                                                            Buy
+                                                        </a>
+                                                    }
+
+
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-content">
+                                <div class="card-body">
+                                    <ul class="product-tabs nav nav-tabs nav-underline no-hover-bg">
+                                    </ul>
+                                    <div class="product-content tab-content px-1 pt-1">
+                                        <div aria-expanded="true" aria-labelledby="description" class="tab-pane active" id="desc" role="tabpanel">
+                                      
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+            else
+            {
+                <h5>Not Found</h5>
+            }
+
+        </div>
+    </div>
+</div>
+
+
+
+<script src="~/CustomScripts/Order/CreateOrderScript.js"></script>
