@@ -1,0 +1,156 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+@model IEnumerable<ECommerceProject.Contract.ResponseModel.Product.ProductResponseModel>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-touchspin/4.3.0/jquery.bootstrap-touchspin.min.css" integrity="sha512-0GlDFjxPsBIRh0ZGa2IMkNT54XGNaGqeJQLtMAw6EMEDQJ0WqpnU6COVA91cUS0CeVA5HtfBfzS9rlJR3bPMyw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+
+    .input-group {
+        margin-top: -2px;
+        width: 44%;
+    }
+
+    .bootstrap-touchspin-down {
+        width: 33px;
+        height: 30px;
+        background-color: #512e90 !important;
+    }
+
+    .bootstrap-touchspin-up {
+        width: 33px;
+        height: 30px;
+        background-color: #512e90 !important;
+    }
+    /* .custom-control-input:checked ~ .custom-control-label::before {
+         background-color: red !important;
+    }*/
+</style>
+<div id="domMessage" style="display:none;">
+    <img src="~/images/unnamed2.gif" width="100" height="100" /><br />
+    <label style="color:black; font-weight:800;font-size:18px">İşleminiz devam ediyor,</label><br />
+    <label style="color:black; font-weight:800;font-size:18px">Lütfen bekleyiniz!</label>
+</div>
+@if (Model.Any())
+{
+    <div class="loadMore row">
+        @foreach (var item in Model)
+        {
+            <div class="item prodiv col-xl-4 col-lg-6 col-md-6 col-sm-6">
+
+                <div class="card pull-up">
+                    <div class="pl-1 pt-1 pr-1">
+                        @if (item.IsActiveCampaign)
+                        {
+                            <span class="badge badge-danger block" style="font-size:16px; font-weight:600; background-color:#e10032">@item.CampaignName.ToUpper()</span>
+
+                        }
+                        else
+                        {
+                            <span class="" style="font-size:16px; font-weight:600;">&nbsp;</span>
+                        }
+                    </div>
+                    <div class="card-content">
+
+                        <div class="card-body" style="height: 650px;">
+
+                            <div class="product-img d-flex align-items-center">
+
+                                <a href="#" style="display: contents;">
+                                    <img class="img-fluid mb-1" src="~/images/Product-Portfolio-1.jpg" alt="" style="max-height: 300px !important; width: 100%">
+                                </a>
+
+                            </div>
+                            <div style="height:9%">
+                                <h4 class="product-title">
+
+                                    <h5 class="oilproducts">@item.Code - @item.Name</h5>
+
+                                </h4>
+
+                            </div>
+
+                            <div class="price-reviews">
+                                <span class="price-box ">
+
+
+                                    <span class="price" style="font-size:150%" id="priceSpan_@(item.Id)">
+                                        @string.Format("{0:N2}", item.Price) ₺
+
+                                    </span>
+
+                                    @if (item.IsActiveCampaign)
+                                    {
+                                        <span id="countPrice_@(item.Id)">
+
+                                            <i style="color: indianred">   &nbsp; Promotional price: @string.Format("{0:N2}", item.Price) ₺</i>
+
+                                        </span>
+
+                                    }
+                                    else
+                                    {
+                                        <span id="countPrice_@(item.Id)">
+
+                                            <i style="color: indianred">   &nbsp; Unit Price : @string.Format("{0:N2}", item.Price) ₺</i>
+
+                                        </span>
+                                    }
+
+
+
+                                    <br />
+                                    <br />
+
+                                </span>
+                                <span class="ratings float-right"></span>
+                            </div>
+                            <div class="form-group row">
+
+                                <div class="form-group col-md-6" id="paymentDiv_@(item.Id)" style="display:none">
+                                    <label>Vade Tipleri</label>
+                                    <select class="form-control" required name="PaymentForwordTypeId" onchange="forwardPaymentChange('@item.Id')" id="PaymentForwordTypeId_@(item.Id)">
+
+
+                                        <option value="">Seçiniz</option>
+                                    </select>
+
+                                </div>
+                            </div>
+
+                            <div class="product-action d-flex justify-content-around">
+
+                                <a href="/Product/GetProduct?Id=@item.Id" data-toggle="tooltip" data-placement="top" title="Detay"><i class="ft-eye" style="line-height: 1.7; width: 2% !important"></i></a><span class="saperator">|</span>
+                                <input id="Quantity_@(item.Id)" style="line-height: 1.7; width:44% !important; text-align:center" type="text" value="1" name="demo3"><span class="saperator">|</span>
+                                <a href="#" data-toggle="tooltip" data-placement="top" onclick="addTempBasket('@item.Id')" title="Sepete Ekle">
+                                    <i class="ft-shopping-cart" style="line-height: 1.7; width: 2% !important "></i>
+                                </a>
+
+                            </div>
+                            <br />
+
+
+
+                            @if (item.IsActiveCampaign)
+                            {
+                        <i style="color: indianred"><i class="fas fa-exclamation"></i>   You can order a maximum of @item.Price from the promotional product.   .</i>
+                            }
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+
+    </div>
+
+
+
+}
+else
+{
+    <h5></h5>
+}

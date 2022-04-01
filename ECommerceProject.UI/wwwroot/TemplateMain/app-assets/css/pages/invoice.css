@@ -1,0 +1,46 @@
+@media print {
+    .content-header,
+    .buy-now,
+    .btn-print,
+    .footer,
+    .open,
+    .main-menu {
+        display: none;
+    }
+
+    #invoice-template,
+    .content-wrapper {
+        padding-top: 0;
+    }
+
+    .app-content,
+    #invoice-template,
+    .navbar-container,
+    .navbar-wrapper,
+    .header-navbar {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #invoice-footer {
+        position: relative;
+        top: -80px !important;
+    }
+
+    table {
+        font-size: 7px;
+    }
+
+    @page:first {
+        margin-top: 0px;
+        margin-bottom: 20px;
+    }
+
+    @page {
+        size: auto;
+        margin: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+   

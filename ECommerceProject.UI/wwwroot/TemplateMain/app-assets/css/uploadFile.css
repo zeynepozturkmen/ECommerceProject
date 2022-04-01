@@ -1,0 +1,132 @@
+﻿/*.inputDnD .form-control-file {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 10em;
+    outline: none;
+    visibility: hidden;
+    cursor: pointer;
+    background-color: #c61c23;
+
+    box-shadow: 0 0 5px solid currentColor;
+}
+
+    .inputDnD .form-control-file:before {
+        content: attr( data-title);
+        position: absolute;
+        top: 0.5em;
+        left: 0;
+        width: 100%;
+        min-height: 9em;
+        line-height: 6em;
+        padding-top: 1.5em;
+        opacity: 1;
+        visibility: visible;
+        background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+        background-repeat: no-repeat;
+        background-size: 40px 40px;
+        background-position: 25% 40% !important;
+        text-align: center;
+        border: 0.25em dashed currentColor;
+        border-bottom: 0.25em dashed currentColor;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow: hidden;
+    }
+
+    .inputDnD .form-control-file:hover:before {
+        border-style: solid;
+
+        box-shadow: inset 0px 0px 0px 0.25em currentColor;
+    }
+
+
+.inputF .form-control-file {
+    margin-top:-8px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 4em;
+    outline: none;
+    visibility: hidden;
+    cursor: pointer;
+    background-color: #c61c23;
+    box-shadow: 0 0 5px solid currentColor;
+}
+
+    .inputF .form-control-file:before {
+        content: attr( data-title);
+        position: absolute;
+        top: 0.5em;
+        left: 0;
+        width: 100%;
+        min-height: 3em;
+        line-height: 0em;
+        padding-top: 1.5em;
+        opacity: 1;
+        visibility: visible;
+        background-image: url(https://image.flaticon.com/icons/png/128/109/109612.png);
+        background-repeat: no-repeat;
+        background-size: 15px 15px;
+        background-position: 10% 50% !important;
+        text-align: center;
+        border: 0.25em dashed currentColor;
+        border-bottom: 0.25em dashed currentColor;
+        transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        overflow: hidden;
+    }
+
+    .inputF .form-control-file:hover:before {
+        border-style: solid;
+        box-shadow: inset 0px 0px 0px 0.25em currentColor;
+    }
+
+ */
+
+
+.box {
+    position: relative;
+    background: #ffffff;
+    width: 100%;
+}
+
+.box-header {
+    color: #424647;
+    display: block;
+    padding: 10px;
+    position: relative;
+    border-bottom: 1px solid #f4f4f4;
+    margin-bottom: 10px;
+}
+
+.box-tools {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.dropzone-wrapper {
+    border: 2px dashed #424647;
+    color: #92b0b3;
+    position: relative;
+    height: 150px;
+}
+
+.dropzone-desc {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    width: 60%;
+    top: 50px;
+    font-size: 16px;
+}
+
+.dropzone {
+    position: absolute;
+    outline: none !important;
+    width: 100%;
+    height: 150px;
+    cursor: pointer;
+    opacity: 0;
+}

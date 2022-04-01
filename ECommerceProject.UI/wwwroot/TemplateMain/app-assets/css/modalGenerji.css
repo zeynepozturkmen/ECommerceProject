@@ -1,0 +1,15 @@
+﻿.modal-header {
+    padding: 0.5rem 0.5rem !important;
+}
+
+
+
+.modalLogo #dlogo {
+    background-image: url("/TemplateMain/app-assets/images/logo/glogo.png");
+    width: 130px;
+    height: 43px;
+    background-size: 113px;
+    display: inline-block;
+    background-position: center center;
+    background-repeat: no-repeat;
+}

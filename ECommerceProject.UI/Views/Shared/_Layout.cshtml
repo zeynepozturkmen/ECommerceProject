@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html class="loading" lang="tr" data-textdirection="ltr">
+<!-- BEGIN: Head-->
+
+<head>
+    <meta http-equiv='cache-control' content='no-cache'>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <meta name="description" content="HEKTAŞ SIVI OTOMASYON">
+    <meta name="keywords" content=" ">
+    <meta name="author" content="Hepsi Burada">
+
+    <title>@ViewBag.Title</title>
+    
+    <link rel="apple-touch-icon" href="~/TemplateMain/app-assets/images/ico/apple-icon-12077.png">
+
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i%7CQuicksand:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/fonts/material-icons/material-icons.css">
+
+    <!-- BEGIN: Vendor CSS-->
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/vendors/css/vendors.min.css">
+
+
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/vendors/css/forms/toggle/bootstrap-switch.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/vendors/css/forms/toggle/switchery.min.css">
+    <!-- END: Vendor CSS-->
+    <!-- BEGIN: Datatable CSS-->
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/vendors/css/tables/datatable/datatables.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/vendors/css/tables/extensions/buttons.dataTables.min.css">
+
+    <!-- END: Datatable CSS-->
+    <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/colors.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/components.css">
+    <!-- END: Theme CSS-->
+    <!-- END: Theme CSS-->
+    <link href="~/TemplateMain/sweet-alert2/sweetalert2.min.css" rel="stylesheet" />
+    <!-- END: Theme CSS-->
+    <!-- BEGIN: Page CSS-->
+    @*<link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/core/menu/menu-types/material-vertical-menu.css">*@
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/core/colors/palette-gradient.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/plugins/forms/switch.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/fonts/simple-line-icons/style.min.css">
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/css/core/colors/palette-switch.css">
+
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/app-assets/vendors/css/forms/selects/select2.min.css">
+    <!-- END: Page CSS-->
+    <!-- BEGIN: Form Helper-->
+    @*<link rel="stylesheet" href="/formhelper/formhelper.min.css" />*@
+    <link href="~/css/CustomFormHelper.min.css" rel="stylesheet" />
+
+
+    <!-- END: Form Helper-->
+    <!-- BEGIN: Custom CSS-->
+    <link rel="stylesheet" type="text/css" href="~/TemplateMain/assets/css/style.css">
+
+    @* for datepicker *@
+    @*<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">*@
+    <link href="~/TemplateMain/app-assets/css/uploadFile.css" rel="stylesheet" />
+
+
+    <!-- END: Custom CSS-->
+    <link href="~/fontawesome-free-5.15.4-web/css/all.css" rel="stylesheet" />
+    <link href="~/TemplateMain/app-assets/css/CustomDatepicker.css" rel="stylesheet" />
+
+
+    <link href="~/TemplateMain/app-assets/css/modalGenerji.css" rel="stylesheet" />
+
+</head>
+<!-- END: Head-->
+<!-- BEGIN: Body-->
+
+<body class="vertical-layout vertical-menu material-vertical-layout material-layout 2-columns fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
+
+
+    <!-- BEGIN: Header-->
+
+    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-info">
+        <div class="navbar-wrapper">
+            <div class="navbar-header">
+                <ul class="nav navbar-nav flex-row">
+                    <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+                    <li class="nav-item">
+                        <a class="navbar-brand" href="/Home/Index">
+
+
+                            <img src="~/images/frmLogo.png" width="200" />
+
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none"><a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="material-icons mt-50">more_vert</i></a></li>
+                </ul>
+            </div>
+            <div class="navbar-container content">
+                <div class="collapse navbar-collapse" id="navbar-mobile">
+                    <ul class="nav navbar-nav mr-auto float-left">
+
+                        <li class="nav-item d-none d-md-block" style="font-weight:500; color:white; font-size:16px">
+                         
+                        </li>
+
+
+
+
+                    </ul>
+                    <ul class="nav navbar-nav float-right">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- END: Header-->
+    <!-- BEGIN: Main Menu-->
+
+    @await Html.PartialAsync("~/Views/Shared/_PartialLeftMenuMain.cshtml")
+
+    <!-- END: Main Menu-->
+    <!-- BEGIN: Content-->
+    <div class="app-content content">
+        <div class="content-header row">
+        </div>
+        <div class="content-overlay"></div>
+        <div class="content-wrapper">
+
+            @RenderBody()
+
+        </div>
+    </div>
+    <!-- END: Content-->
+
+    <div class="sidenav-overlay"></div>
+    <div class="drag-target"></div>
+
+
+    <!-- BEGIN: Jquery-->
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/blockUI/blockUI.js"></script>
+
+    <!-- END: Jquery-->
+    <!-- BEGIN: Footer-->
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow mb-0">
+
+        <p class="clearfix blue-grey lighten-2 text-sm-center mb-0" style="font-size:9px;">
+            <span class="float-md-left d-block d-md-inline-block">&nbsp; &copy; 2021 <a class="text-bold-800 grey darken-2" style="line-height:30px;" href="#" target="_blank">Hepsi Burada</a><span style="font-size:10px;"> &nbsp;Tüm Hakları Saklıdır.</span></span><span class="float-md-right d-none d-lg-block"><span id="scroll-top"></span></span>
+
+
+
+        </p>
+    </footer>
+    <!-- BEGIN: Vendor JS-->
+    <script src="~/TemplateMain/app-assets/vendors/js/vendors.min.js"></script>
+    <!-- BEGIN Vendor JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/TemplateMain/app-assets/vendors/js/forms/toggle/bootstrap-switch.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/forms/toggle/switchery.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/forms/toggle/bootstrap-checkbox.min.js"></script>
+    <script src="~/TemplateMain/app-assets/js/scripts/forms/switch.js"></script>
+
+    <script src="~/TemplateMain/app-assets/vendors/js/forms/tags/form-field.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Theme JS-->
+    <script src="~/TemplateMain/app-assets/js/core/app-menu.js"></script>
+    <script src="~/TemplateMain/app-assets/js/core/app.js"></script>
+    <!-- END: Theme JS-->
+    <!-- BEGIN: Page Vendor JS-->
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/datatable/dataTables.buttons.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/datatable/buttons.bootstrap4.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/jszip.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/pdfmake.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/vfs_fonts.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/buttons.html5.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/buttons.print.min.js"></script>
+    <script src="~/TemplateMain/app-assets/vendors/js/tables/buttons.colVis.min.js"></script>
+    <!-- END: Page Vendor JS-->
+    <!-- BEGIN: Page JS-->
+    <script src="~/TemplateMain/app-assets/js/scripts/forms/custom-file-input.js"></script>
+    <script src="~/TemplateMain/app-assets/js/scripts/forms/select/form-select2.js"></script>
+
+    <!-- BEGIN: Form helper JS-->
+    @*<script type="text/javascript" src="/formhelper/formhelper.bundle.min.js"></script>*@
+    <script src="~/CustomScript/CustomFormHelper/CustomFormHelperBundle.min.js"></script>
+    <!-- END: Form helper JS-->
+    <!-- BEGIN: Theme JS-->
+    <!-- END: Theme JS-->
+    <!-- start: sweet alert JS-->
+
+    <script src="~/TemplateMain/sweet-alert2/sweetalert2.min.js"></script>
+
+    <!-- END: sweer JS-->
+    <!-- BEGIN: Page JS-->
+    <!-- END: Page JS-->
+    <!-- END: Page JS-->
+
+
+    <script src="~/fontawesome-free-5.15.4-web/js/all.js"></script>
+    @RenderSection("Scripts", required: false)
+
+
+
+</body>
+<!-- END: Body-->
+
+</html>

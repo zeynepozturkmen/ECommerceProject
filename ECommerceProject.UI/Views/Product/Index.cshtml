@@ -1,0 +1,147 @@
+﻿
+@{
+    ViewData["Title"] = "Product List";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<ECommerceProject.Contract.ResponseModel.Product.ProductResponseModel>
+
+<div class="card">
+    <div class="card-header">
+        <button class="btn btn-info float-right" data-toggle="modal" data-target="#addProductModal"><i class="fas fa-plus-circle "></i>&nbsp; Add Product</button>
+        <h4 class="card-title">
+            <b> Product List</b>
+        </h4>
+    </div>
+
+
+    <div class="card-content">
+        <div class="card-body">
+
+            <ul class="nav nav-tabs nav-topline">
+                <li class="nav-item">
+                    <a class="nav-link active" id="base-tab21" data-toggle="tab" aria-controls="tab21" href="#tab21" aria-expanded="true">Product Details</a>
+                </li>
+
+
+            </ul>
+            <div class="tab-content px-1 pt-1 border-grey border-lighten-2 border-0-top">
+                <div role="tabpanel" class="tab-pane active" id="tab21" aria-expanded="true" aria-labelledby="base-tab21">
+                    <section id="column-selectors" class="mt-2">
+
+
+                        <table class="table table-striped table-bordered dataex-html5-export dataTable">
+                            <thead>
+                                <tr>
+                                    <th>Product Code</th>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Stock</th>
+                                    <th class="notexport">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @if (Model.Any())
+                                {
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td>@item.Code</td>
+                                            <td>@item.Name</td>
+                                            <td>@item.Price.ToString("N2")</td>
+                                            <td>@item.Stock</td>
+                                            <td>
+                                                <button type="button" class="btn btn-danger" onclick="deleteProduct('@item.Id')">Delete</button>
+                                            </td>
+                                        </tr>
+
+                                    }
+                                }
+
+                            </tbody>
+                        </table>
+
+
+                    </section>
+                </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade" id="addProductModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header modalLogo">
+                <div class="row">
+                    @*<div class="col-xs-4"> <h4 class="modal-title"><span></span></h4></div>*@
+                    <div class="col-xs-8"><h4 style="line-height:45px;" class="ml-2"><b>Add Product</b></h4></div>
+                </div>
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <form id="addProductForm">
+
+                    <div class="row match-height">
+
+
+                        <div class="col-xl-3 col-xs-12">
+                            <div class="form-group">
+                                <label for="inputCity">Product Code</label>
+                                <input class="form-control" type="text" required name="Code" />
+
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-xs-12">
+                            <div class="form-group">
+                                <label for="inputCity">Name</label>
+                                <input class="form-control" type="text" required name="Name" />
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-xs-12">
+                            <div class="form-group">
+                                <label for="inputCity">Price</label>
+                                <input class="form-control" type="text" required name="Price" />
+
+                            </div>
+                        </div>
+
+
+                        <div class="col-xl-3 col-xs-12">
+                            <div class="form-group">
+                                <label for="inputCity">Stock</label>
+                                <input class="form-control" type="number" name="Stock" required />
+
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                    <button type="submit" class="btn btn-info float-right mb-2"><i class="far fa-save"></i> Save</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script type="text/javascript" src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/TemplateMain/app-assets/vendors/js/tables/datatable/datatables.min.js"></script>
+<script src="~/TemplateMain/app-assets/js/scripts/tables/datatables-extensions/datatable-button/datatable-html5.js"></script>
+
+
+<script src="~/CustomScripts/Product/ProductScript.js"></script>
